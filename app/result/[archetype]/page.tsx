@@ -6,7 +6,7 @@ type Params = Promise<{ archetype: string }>;
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { archetype } = await params
-  const imageUrl = `https://res.cloudinary.com/dekobspwg/image/upload/v1734848641/card-${archetype.toLowerCase()}.png`
+  const imageUrl = `https://i.pinimg.com/474x/4a/ee/3c/4aee3c981faa9f217ae377b5471308c1.jpg`
 
   return {
     title: `Your Personality Archetype: ${archetype}`,

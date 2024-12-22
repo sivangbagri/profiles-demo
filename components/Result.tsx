@@ -9,7 +9,7 @@ interface ResultProps {
 }
 
 export default function Result({ archetype }: ResultProps) {
-  const shareUrl = `https://your-website.com/result/${archetype}`
+  const shareUrl = `https://profiles-demo-1iwz.vercel.app/result/${archetype}`
   const imageUrl = `https://i.pinimg.com/736x/0d/e1/be/0de1be2ac7fc25c8d6756b479dabd486.jpg`
 
   return (
