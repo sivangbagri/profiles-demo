@@ -1,0 +1,212 @@
+[
+    {
+        "question": "You find an ancient magical artifact that has the power to reshape reality, but you can only use it once. How will you use it?",
+        "answerOptions": [
+            {
+                "text": "Experiment with its powers in creative, Reshape reality to explore the unknown or unlock secret paths.",
+                "type": "O",
+                "value": 1
+            },
+            {
+                "text": "Use it solely for practical purposes, such as building a safe escape route.",
+                "type": "C",
+                "value": 1
+            },
+            {
+                "text": "Announce the discovery, Focus on showing off its powers to intimidate your enemies or inspire your allies.",
+                "type": "E",
+                "value": 1
+            },
+            {
+                "text": "Use it to solve a problem that benefits everyone in need rather than personal gain.",
+                "type": "A",
+                "value": 1
+            },
+            {
+                "text": "Fear using the artifact at all, worrying about unpredictable consequences.",
+                "type": "N",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "question": "You are in the customization menu of a racing/arcade game and have access to various skins, visual upgrades, and accessories. You now have the option to spend time customizing your avatar or vehicle aesthetics.",
+        "answerOptions": [
+            {
+                "text": "Try bold and unusual customization options, mixing bright colors and patterns to create a unique look.",
+                "type": "O",
+                "value": 1
+            },
+            {
+                "text": "Carefully choose upgrades that will match your gameplay needs or strategy for better performance.",
+                "type": "c",
+                "value": 1
+            },
+            {
+                "text": "Choose flashy and vibrant designs that draw attention, aiming to stand out from other players.",
+                "type": "E",
+                "value": 1
+            },
+            {
+                "text": "Stick with simple, team-oriented designs that make you easily identifiable by other players in multiplayer settings.",
+                "type": "A",
+                "value": 1
+            },
+            {
+                "text": "Overthink every choice, unsure of whether the selected items are the right or most optimal design.",
+                "type": "N",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "question": "You’re in a competitive mini-game party mode with friends and family. The game relies on collecting the most items from a shared game arena in 3 minutes.",
+        "answerOptions": [
+            {
+                "text": "Try to discover creative routes or experiment with different gameplay mechanics for an advantage.",
+                "type": "O",
+                "value": 1
+            },
+            {
+                "text": "Stick to careful paths and avoid unnecessary risks for reliable points.",
+                "type": "c",
+                "value": 1
+            },
+            {
+                "text": "Aggressively gather items and interact with as many players as possible, embracing the chaos.",
+                "type": "E",
+                "value": 1
+            },
+            {
+                "text": "Avoid hurting other players' chances and instead work cooperatively with others",
+                "type": "A",
+                "value": 1
+            },
+            {
+                "text": "Hesitate and become overly focused on avoiding competition, losing valuable time.",
+                "type": "N",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "question": "Your opponent has consistently blocked and countered your most powerful moves. You must figure out a strategy to break through their defenses.",
+        "answerOptions": [
+            {
+                "text": "Try unpredictable tactics and creative combo setups to keep your opponent guessing.",
+                "type": "O",
+                "value": 1
+            },
+            {
+                "text": "Stick to well-planned counter maneuvers and wait for openings methodically.",
+                "type": "c",
+                "value": 1
+            },
+            {
+                "text": "Aggressively pressure them by rushing in with constant attacks and strong combos.",
+                "type": "E",
+                "value": 1
+            },
+            {
+                "text": "Attempt to test the waters with minimal-risk attacks rather than all-in strategies.",
+                "type": "A",
+                "value": 1
+            },
+            {
+                "text": "Second-guess your strategy, hesitating too long and losing your timing.",
+                "type": "N",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "question": "You’re the last member of your team and have 20 seconds to defuse the bomb in a critical round of Counter-Strike or similar FPS games. The enemy is actively trying to stop you.",
+        "answerOptions": [
+            {
+                "text": "Attempt unpredictable movement patterns to throw off the enemy’s aim while focusing on the defuse.",
+                "type": "O",
+                "value": 1
+            },
+            {
+                "text": "Stick to a steady, calculated approach, focusing solely on defusing with minimal risks.",
+                "type": "c",
+                "value": 1
+            },
+            {
+                "text": "Rush in with high-speed movements and confidence, using quick actions to make it difficult for enemies to counter.",
+                "type": "E",
+                "value": 1
+            },
+            {
+                "text": "Prioritize careful observation, using defensive tactics to ensure you can safely defuse without losing health.",
+                "type": "A",
+                "value": 1
+            },
+            {
+                "text": "Panic, overcommitting to defensive movement or second-guessing the timing, which results in failure.",
+                "type": "N",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "question": "You’re focusing on expanding your resource economy by building new resource-gathering structures. How will you approach this?",
+        "answerOptions": [
+            {
+                "text": "Experiment with unconventional building placements or resource paths to optimize gathering efficiency.                ",
+                "type": "O",
+                "value": 1
+            },
+            {
+                "text": "Stick to a disciplined, structured build order that ensures steady economic growth.",
+                "type": "c",
+                "value": 1
+            },
+            {
+                "text": "Focus on high-activity resource paths, micromanaging all workers simultaneously.",
+                "type": "E",
+                "value": 1
+            },
+            {
+                "text": "Prioritize efficient team coordination to balance resource management with shared objectives.",
+                "type": "A",
+                "value": 1
+            },
+            {
+                "text": "Hesitate with decision-making about optimal paths or overcommit resources to a single supply chain.",
+                "type": "N",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "question": "You’re in a social simulator and trying to build relationships with NPCs. How will you interact with others?",
+        "answerOptions": [
+            {
+                "text": "Experiment with unique conversation paths and try out new interactions with every NPC you meet.                ",
+                "type": "O",
+                "value": 1
+            },
+            {
+                "text": "Build relationships steadily by engaging in reliable, consistent interactions.",
+                "type": "c",
+                "value": 1
+            },
+            {
+                "text": "Focus on building large social groups, hosting parties, and creating memorable interactions.",
+                "type": "E",
+                "value": 1
+            },
+            {
+                "text": "Prioritize supporting others, building trust, and creating long-term partnerships without conflict.",
+                "type": "A",
+                "value": 1
+            },
+            {
+                "text": "Struggle with interactions, fearing rejection or failure, and hesitating to engage deeply.",
+                "type": "N",
+                "value": 1
+            }
+        ]
+    }
+]

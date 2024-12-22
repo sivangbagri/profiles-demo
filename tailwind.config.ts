@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+
+      fontFamily: {
+        roboto: ['Roboto Mono', 'serif'],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
