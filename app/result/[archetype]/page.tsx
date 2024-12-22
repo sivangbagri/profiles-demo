@@ -2,13 +2,11 @@ import { Metadata } from 'next'
 import Result from '@/components/Result'
 import { notFound } from 'next/navigation'
 
-interface ResultPageProps {
-  params: { archetype: string }
-}
+type Params = Promise<{ archetype: string }>;
 
-export async function generateMetadata({ params }: ResultPageProps): Promise<Metadata> {
-  const archetype = params.archetype
-  const imageUrl = `https://i.pinimg.com/236x/14/59/21/145921300153fe71e241a79c16f1c8fc.jpg`
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { archetype } = await params
+  const imageUrl = `https://res.cloudinary.com/dekobspwg/image/upload/v1734848641/card-${archetype.toLowerCase()}.png`
 
   return {
     title: `Your Personality Archetype: ${archetype}`,
@@ -27,13 +25,14 @@ export async function generateMetadata({ params }: ResultPageProps): Promise<Met
   }
 }
 
-export default function ResultPage({ params }: ResultPageProps) {
+export default async function ResultPage({ params }: { params: Params }) {
+  const { archetype } = await params
   const validArchetypes = ['Visionary', 'Strategist', 'Diplomat', 'Challenger', 'Thinker', 'Achiever', 'Stoic', 'Explorer', 'Realist', 'Guardian']
   
-  if (!validArchetypes.includes(params.archetype)) {
+  if (!validArchetypes.includes(archetype)) {
     notFound()
   }
 
-  return <Result archetype={params.archetype} />
+  return <Result archetype={archetype} />
 }
 
