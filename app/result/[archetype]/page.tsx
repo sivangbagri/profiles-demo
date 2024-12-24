@@ -7,16 +7,16 @@ type Params = Promise<{ archetype: string }>;
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { archetype } = await params
   let imageUrl = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFfbFMZUPw-9-fKkQEUfsY5EdaZMLHqipDw&s`
-  if(archetype==="Visionary") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968061/Y2FyZC12aXNfYm85bm1s/drilldown`;
-  else if(archetype==="Guardian") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968058/Y2FyZC1ndWFyZF8xX2NhdGxieg==/drilldown`;
-  else if(archetype==="Explorer") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968061/Y2FyZC1leHBsb18xX3dmdnlnaA==/drilldown`;
-  else if(archetype==="Achiever") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968050/Y2FyZC1hY2hpZV9hcmJxOXg=/drilldown`;
-  else if(archetype==="Strategist") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968062/Y2FyZC1zdHJhX3h3eGpuMA==/drilldown`;
-  else if(archetype==="Challenger") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968060/Y2FyZC1jaGFsbGVfdWx3emFu/drilldown`;
-  else if(archetype==="Diplomat") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968051/Y2FyZC1kaXBsb19jZHlndmM=/drilldown`;
-  else if(archetype==="Thinker") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968048/Y2FyZC10aGlua19jNmdqcWo=/drilldown`;
-  else if(archetype==="Realist") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968045/Y2FyZC1yZWFsX2p5NWduZA==/drilldown`;
-  else if(archetype==="Stoic") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968049/Y2FyZC1zdG9pY19uc2p4cnU=/drilldown`;
+  if(archetype==="Visionary") imageUrl=`https://res.cloudinary.com/dekobspwg/image/upload/v1734968061/card-vis_bo9nml.png`;
+  else if(archetype==="Guardian") imageUrl=`https://res.cloudinary.com/dekobspwg/image/upload/v1734968058/card-guard_1_catlbz.png`;
+  else if(archetype==="Explorer") imageUrl=`https://res.cloudinary.com/dekobspwg/image/upload/v1734968061/card-explo_1_wfvygh.png`;
+  else if(archetype==="Achiever") imageUrl=`https://res.cloudinary.com/dekobspwg/image/upload/v1734968050/card-achie_arbq9x.png`;
+  else if(archetype==="Strategist") imageUrl=`https://res.cloudinary.com/dekobspwg/image/upload/v1734968062/card-stra_xwxjn0.png`;
+  else if(archetype==="Challenger") imageUrl=`https://res.cloudinary.com/dekobspwg/image/upload/v1734968060/card-challe_ulwzan.png`;
+  else if(archetype==="Diplomat") imageUrl=`https://res.cloudinary.com/dekobspwg/image/upload/v1734968051/card-diplo_cdygvc.png`;
+  else if(archetype==="Thinker") imageUrl=`https://res.cloudinary.com/dekobspwg/image/upload/v1734968048/card-think_c6gjqj.png`;
+  else if(archetype==="Realist") imageUrl=`https://res.cloudinary.com/dekobspwg/image/upload/v1734968045/card-real_jy5gnd.png`;
+  else if(archetype==="Stoic") imageUrl=`https://res.cloudinary.com/dekobspwg/image/upload/v1734968049/card-stoic_nsjxru.png`;
   const cacheBuster = `?t=${Date.now()}`
   imageUrl += cacheBuster
   return {
