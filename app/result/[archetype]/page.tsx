@@ -17,7 +17,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   else if(archetype==="Thinker") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968048/Y2FyZC10aGlua19jNmdqcWo=/drilldown`;
   else if(archetype==="Realist") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968045/Y2FyZC1yZWFsX2p5NWduZA==/drilldown`;
   else if(archetype==="Stoic") imageUrl=`https://res-console.cloudinary.com/dekobspwg/thumbnails/v1/image/upload/v1734968049/Y2FyZC1zdG9pY19uc2p4cnU=/drilldown`;
-
+  const cacheBuster = `?t=${Date.now()}`
+  imageUrl += cacheBuster
   return {
     title: `Your Personality Archetype: ${archetype}`,
     description: `Discover your personality archetype: ${archetype}. Take the survey now!`,
