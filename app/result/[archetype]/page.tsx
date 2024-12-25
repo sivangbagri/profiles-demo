@@ -70,6 +70,7 @@ export default async function ResultPage({ params }: { params: Params }) {
   if (!validArchetypes.includes(archetype)) {
     notFound();
   }
+  
   // const cookieStore = await cookies();
   // const surveyCompletedCookie = cookieStore.get('surveyCompleted'); 
 
