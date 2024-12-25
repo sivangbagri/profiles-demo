@@ -1,18 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import Question from "./Question";
 import { useRouter } from "next/navigation";
 import questions from "@/constants/questions.json";
 import Cookies from "js-cookie";
+
 export default function SurveyComponent() {
   const deleteCookie = async () => {
-    await fetch('/api/delete-cookie', { method: 'POST' });
+    await fetch("/api/delete-cookie", { method: "POST" });
   };
 
-  useEffect(()=>{
-    deleteCookie();
-  },[])
+  // useEffect(() => {
+  //   deleteCookie();
+  // }, []);
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   type Results = {
     O: number;
@@ -28,7 +30,11 @@ export default function SurveyComponent() {
     A: 0,
     N: 0,
   });
+
+  const [isLoading, setIsLoading] = useState(false); // Added loading state
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+
   const handleNextQuestion = async (type: string) => {
     setResults((prev) => ({
       ...prev,
@@ -38,22 +44,21 @@ export default function SurveyComponent() {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
     } else {
+      setIsLoading(true);
       const archetype = calculateArchetype(results);
-      Cookies.set('surveyCompleted','true');
-      router.push(`/result/${archetype}`);
+      Cookies.set("surveyCompleted", "true");
 
+      setTimeout(() => {
+        startTransition(() => {
+          router.push(`/result/${archetype}`);
+        });
+        setIsLoading(false);
+      }, 2000);
     }
   };
 
   const calculateArchetype = (results: Results) => {
     const { O, C, E, A, N } = results;
-    // const total = 7;
-    // const normO = O / total
-    // const normC = C / total
-    // const normE = E / total
-    // const normA = A / total
-    // const normN = N / total
-
     const archetypeScores = {
       Visionary: 1.5 * O + 1.0 * C + 1.2 * E + 0.2 * A - 0.5 * N,
       Strategist: 1.4 * C + 1.1 * O - 0.8 * E + 0.3 * N - 0.4 * A,
@@ -79,6 +84,13 @@ export default function SurveyComponent() {
           question={questions[currentQuestion]}
           onAnswerClick={handleNextQuestion}
         />
+      )}
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80">
+          <div className="text-center">
+            <img src="https://i.pinimg.com/736x/65/dd/3b/65dd3b014ebf57b81f781cb2d2225c36.jpg" className="size-40" /> 
+          </div>
+        </div>
       )}
     </div>
   );
