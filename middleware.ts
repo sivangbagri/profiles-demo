@@ -1,20 +1,33 @@
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextRequest } from 'next/server';
+
+const botUserAgents = [
+  'Twitterbot',
+  'Googlebot',
+  'Bingbot',
+  'FacebookExternalHit',
+  // Add any other bot user agents here
+];
 
 export function middleware(req: NextRequest) {
-  // Check if the 'surveyCompleted' cookie exists
-  const surveyCompleted = req.cookies.get('surveyCompleted');
+  const userAgent = req.headers.get('user-agent');
 
-  // Redirect to homepage if cookie is missing
-  if (!surveyCompleted) {
-    return NextResponse.redirect(new URL('/', req.url));
+  // Skip middleware logic if it's a bot (i.e., let crawlers pass freely)
+  if (botUserAgents.some(agent => userAgent?.includes(agent))) {
+    return NextResponse.next();
   }
 
-  // Allow the request to continue if the cookie exists
+  // Your normal middleware logic here, such as handling cookies
+  const cookieStore = req.cookies;
+  const surveyCompletedCookie = cookieStore.get('surveyCompleted');
+  
+  if (!surveyCompletedCookie) {
+    return NextResponse.redirect('/');
+  }
+  
   return NextResponse.next();
 }
 
-// Apply middleware only to the result route
 export const config = {
-  matcher: '/result/:path*', // Matches all routes under /result/
+  matcher: '/result/:path*',
 };
