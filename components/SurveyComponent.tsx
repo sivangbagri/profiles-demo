@@ -1,11 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Question from "./Question";
 import { useRouter } from "next/navigation";
 import questions from "@/constants/questions.json";
-
+import Cookies from "js-cookie";
 export default function SurveyComponent() {
+  const deleteCookie = async () => {
+    await fetch('/api/delete-cookie', { method: 'POST' });
+  };
+
+  useEffect(()=>{
+    deleteCookie();
+  },[])
   const [currentQuestion, setCurrentQuestion] = useState(0);
   type Results = {
     O: number;
@@ -22,8 +29,7 @@ export default function SurveyComponent() {
     N: 0,
   });
   const router = useRouter();
-
-  const handleNextQuestion = (type: string) => {
+  const handleNextQuestion = async (type: string) => {
     setResults((prev) => ({
       ...prev,
       [type]: prev[type as keyof typeof prev] + 1,
@@ -33,7 +39,9 @@ export default function SurveyComponent() {
       setCurrentQuestion((prev) => prev + 1);
     } else {
       const archetype = calculateArchetype(results);
+      Cookies.set('surveyCompleted','true');
       router.push(`/result/${archetype}`);
+
     }
   };
 
