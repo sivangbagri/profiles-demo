@@ -10,6 +10,11 @@ function isBot(userAgent: string): boolean {
     /bingbot/i,
     /yahoo/i,
     /duckduckbot/i,
+    /facebookexternalhit/i, // Facebook crawler
+    /twitterbot/i,          // Twitter crawler
+    /linkedinbot/i,         // LinkedIn crawler
+    /slackbot/i,            // Slack crawler
+    /discordbot/i,
   ];
   return botPatterns.some((pattern) => pattern.test(userAgent));
 }
