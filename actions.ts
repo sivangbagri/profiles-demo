@@ -1,7 +1,5 @@
 "use server";
 
-import { promises as fs } from "fs";
-import path from "path";
 import { neon } from "@neondatabase/serverless";
 
 export async function submitGamingProfile(formData: FormData) {
