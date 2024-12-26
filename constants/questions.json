@@ -23,7 +23,7 @@
                 "value": 1
             },
             {
-                "text": "Fear using the artifact at all, worrying about unpredictable consequences.",
+                "text": "Proceed cautiously, considering all possible outcomes before taking action.",
                 "type": "N",
                 "value": 1
             }
@@ -53,7 +53,7 @@
                 "value": 1
             },
             {
-                "text": "Overthink every choice, unsure of whether the selected items are the right or most optimal design.",
+                "text": "Carefully evaluate each option, striving to make the most well-informed and thoughtful decision.",
                 "type": "N",
                 "value": 1
             }
@@ -83,7 +83,7 @@
                 "value": 1
             },
             {
-                "text": "Hesitate and become overly focused on avoiding competition, losing valuable time.",
+                "text": "Pause to avoid risks, prioritizing caution over speed.",
                 "type": "N",
                 "value": 1
             }
@@ -113,7 +113,7 @@
                 "value": 1
             },
             {
-                "text": "Second-guess your strategy, hesitating too long and losing your timing.",
+                "text": "Take extra time to refine your approach, mindful of potential setbacks.",
                 "type": "N",
                 "value": 1
             }
@@ -143,7 +143,7 @@
                 "value": 1
             },
             {
-                "text": "Panic, overcommitting to defensive movement or second-guessing the timing, which results in failure.",
+                "text": "Play it safe, focusing on defense and double-checking moves.",
                 "type": "N",
                 "value": 1
             }
@@ -173,7 +173,7 @@
                 "value": 1
             },
             {
-                "text": "Hesitate with decision-making about optimal paths or overcommit resources to a single supply chain.",
+                "text": "Weigh your options carefully, cautious of overcommitting to one route",
                 "type": "N",
                 "value": 1
             }
@@ -203,7 +203,7 @@
                 "value": 1
             },
             {
-                "text": "Struggle with interactions, fearing rejection or failure, and hesitating to engage deeply.",
+                "text": "Approach interactions cautiously, unsure if getting too involved might lead to a problem.",
                 "type": "N",
                 "value": 1
             }

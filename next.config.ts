@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    domains: ['res.cloudinary.com'], // Allow Cloudinary images
+  },
   async headers() {
     return [
       {
@@ -11,6 +14,7 @@ const nextConfig: NextConfig = {
             value: 'no-store', // Prevents caching
           },
         ],
+        
       },
     ];
   },
