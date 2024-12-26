@@ -139,6 +139,7 @@ export default function Result({ archetype }: ResultProps) {
 
         {!formSubmitted ? (
           <form action={handleSubmit} className="space-y-6">
+             <input type="hidden" id="archetype" name="archetype" value={archetype} />
             <div className="space-y-2">
               <label htmlFor="game" className="block text-left">
                 Which game do you play the most?
