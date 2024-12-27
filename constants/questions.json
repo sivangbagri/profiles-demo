@@ -18,43 +18,43 @@
                 "value": 1
             },
             {
-                "text": "Use it to solve a problem that benefits everyone in need rather than personal gain.",
-                "type": "A",
+                "text": "Proceed cautiously, considering all possible outcomes before taking action.",
+                "type": "N",
                 "value": 1
             },
             {
-                "text": "Proceed cautiously, considering all possible outcomes before taking action.",
-                "type": "N",
+                "text": "Use it to solve a problem that benefits everyone in need rather than personal gain.",
+                "type": "A",
                 "value": 1
             }
         ]
     },
     {
-        "question": "You are in the customization menu of a racing/arcade game and have access to various skins, visual upgrades, and accessories. You now have the option to spend time customizing your avatar or vehicle aesthetics.",
+        "question": "You're in the customization menu of a racing game, where you can upgrade skins, visuals, and accessories for your vehicle. What will you do?",
         "answerOptions": [
+            {
+                "text": "Opt for simple, team-oriented designs to stay easily recognizable by other players in multiplayer games.",
+                "type": "A",
+                "value": 1
+            },
             {
                 "text": "Try bold and unusual customization options, mixing bright colors and patterns to create a unique look.",
                 "type": "O",
                 "value": 1
             },
             {
-                "text": "Carefully choose upgrades that will match your gameplay needs or strategy for better performance.",
-                "type": "c",
+                "text": "Carefully evaluate each option, striving to make the most well-informed and thoughtful decision.",
+                "type": "N",
+                "value": 1
+            },
+            {
+                "text": "Choose upgrades that will match your gameplay needs or strategy for better performance.",
+                "type": "C",
                 "value": 1
             },
             {
                 "text": "Choose flashy and vibrant designs that draw attention, aiming to stand out from other players.",
                 "type": "E",
-                "value": 1
-            },
-            {
-                "text": "Stick with simple, team-oriented designs that make you easily identifiable by other players in multiplayer settings.",
-                "type": "A",
-                "value": 1
-            },
-            {
-                "text": "Carefully evaluate each option, striving to make the most well-informed and thoughtful decision.",
-                "type": "N",
                 "value": 1
             }
         ]
@@ -63,13 +63,13 @@
         "question": "You’re in a competitive mini-game party mode with friends and family. The game relies on collecting the most items from a shared game arena in 3 minutes.",
         "answerOptions": [
             {
-                "text": "Try to discover creative routes or experiment with different gameplay mechanics for an advantage.",
-                "type": "O",
+                "text": "Avoid hurting other players' chances and instead work cooperatively with others",
+                "type": "A",
                 "value": 1
             },
             {
-                "text": "Stick to careful paths and avoid unnecessary risks for reliable points.",
-                "type": "c",
+                "text": "Try to discover creative routes or experiment with different gameplay mechanics for an advantage.",
+                "type": "O",
                 "value": 1
             },
             {
@@ -78,13 +78,13 @@
                 "value": 1
             },
             {
-                "text": "Avoid hurting other players' chances and instead work cooperatively with others",
-                "type": "A",
+                "text": "Give yourself time to think it through before you rush.",
+                "type": "N",
                 "value": 1
             },
             {
-                "text": "Pause to avoid risks, prioritizing caution over speed.",
-                "type": "N",
+                "text": "Stick to careful paths and avoid unnecessary risks for reliable points.",
+                "type": "C",
                 "value": 1
             }
         ]
@@ -98,16 +98,6 @@
                 "value": 1
             },
             {
-                "text": "Stick to well-planned counter maneuvers and wait for openings methodically.",
-                "type": "c",
-                "value": 1
-            },
-            {
-                "text": "Aggressively pressure them by rushing in with constant attacks and strong combos.",
-                "type": "E",
-                "value": 1
-            },
-            {
                 "text": "Attempt to test the waters with minimal-risk attacks rather than all-in strategies.",
                 "type": "A",
                 "value": 1
@@ -116,20 +106,25 @@
                 "text": "Take extra time to refine your approach, mindful of potential setbacks.",
                 "type": "N",
                 "value": 1
+            },
+            {
+                "text": "Stick to well-planned counter maneuvers and wait for openings methodically.",
+                "type": "C",
+                "value": 1
+            },
+            {
+                "text": "Aggressively pressure them by rushing in with constant attacks and strong combos.",
+                "type": "E",
+                "value": 1
             }
         ]
     },
     {
-        "question": "You’re the last member of your team and have 20 seconds to defuse the bomb in a critical round of Counter-Strike or similar FPS games. The enemy is actively trying to stop you.",
+        "question": "You’re the last member of your team and have 20 seconds to defuse the bomb in a critical round of a FPS game. The enemy is actively trying to stop you.",
         "answerOptions": [
             {
-                "text": "Attempt unpredictable movement patterns to throw off the enemy’s aim while focusing on the defuse.",
-                "type": "O",
-                "value": 1
-            },
-            {
-                "text": "Stick to a steady, calculated approach, focusing solely on defusing with minimal risks.",
-                "type": "c",
+                "text": "Play it safe, focusing on defense and double-checking moves.",
+                "type": "N",
                 "value": 1
             },
             {
@@ -138,13 +133,18 @@
                 "value": 1
             },
             {
+                "text": "Stick to a steady, calculated approach, focusing solely on defusing with minimal risks.",
+                "type": "C",
+                "value": 1
+            },
+            {
                 "text": "Prioritize careful observation, using defensive tactics to ensure you can safely defuse without losing health.",
                 "type": "A",
                 "value": 1
             },
             {
-                "text": "Play it safe, focusing on defense and double-checking moves.",
-                "type": "N",
+                "text": "Attempt unpredictable movement patterns to throw off the enemy’s aim while focusing on the defuse.",
+                "type": "O",
                 "value": 1
             }
         ]
@@ -159,7 +159,12 @@
             },
             {
                 "text": "Stick to a disciplined, structured build order that ensures steady economic growth.",
-                "type": "c",
+                "type": "C",
+                "value": 1
+            },
+            {
+                "text": "Weigh your options carefully, cautious of overcommitting to one route",
+                "type": "N",
                 "value": 1
             },
             {
@@ -171,11 +176,6 @@
                 "text": "Prioritize efficient team coordination to balance resource management with shared objectives.",
                 "type": "A",
                 "value": 1
-            },
-            {
-                "text": "Weigh your options carefully, cautious of overcommitting to one route",
-                "type": "N",
-                "value": 1
             }
         ]
     },
@@ -183,30 +183,32 @@
         "question": "You’re in a social simulator and trying to build relationships with NPCs. How will you interact with others?",
         "answerOptions": [
             {
+                "text": "Prioritize supporting others, building trust, and creating long-term partnerships without conflict.",
+                "type": "A",
+                "value": 1
+            },
+            {
                 "text": "Experiment with unique conversation paths and try out new interactions with every NPC you meet.                ",
                 "type": "O",
                 "value": 1
             },
             {
                 "text": "Build relationships steadily by engaging in reliable, consistent interactions.",
-                "type": "c",
-                "value": 1
-            },
-            {
-                "text": "Focus on building large social groups, hosting parties, and creating memorable interactions.",
-                "type": "E",
-                "value": 1
-            },
-            {
-                "text": "Prioritize supporting others, building trust, and creating long-term partnerships without conflict.",
-                "type": "A",
+                "type": "C",
                 "value": 1
             },
             {
                 "text": "Approach interactions cautiously, unsure if getting too involved might lead to a problem.",
                 "type": "N",
                 "value": 1
+            },
+            {
+                "text": "Focus on building large social groups, hosting parties, and creating memorable interactions.",
+                "type": "E",
+                "value": 1
             }
+            
+           
         ]
     }
 ]

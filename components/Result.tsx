@@ -89,7 +89,7 @@ export default function Result({ archetype }: ResultProps) {
         <h1 className="text-2xl sm:text-3xl font-bold mb-4">
           Your Gaming Profile is Ready !
         </h1>
-        <p className="text-xl sm:text-2xl mb-6">{alias[archetype as Archetype]}</p>
+        <p className="text-xl sm:text-2xl mb-6">The {alias[archetype as Archetype]}</p>
         <div className="relative w-full h-32 sm:w-full sm:h-60 mb-2 mx-auto">
           <Image
             src={imageUrl}
@@ -123,7 +123,7 @@ export default function Result({ archetype }: ResultProps) {
         <div className="grid md:grid-cols-2 grid-col-1 md:gap-2 gap-1 mb-2">
           <TwitterShareButton
             url={shareUrl}
-            title={`I am a ${archetype}! Take the personality survey and discover your archetype.`}
+            title={`I just found my gaming profile —I'm a ${alias[archetype as Archetype]}. What's yours? Unlock your gaming personality now ! 🔥.`}
             className="mb-4 w-full"
           >
             <p className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
@@ -132,7 +132,7 @@ export default function Result({ archetype }: ResultProps) {
           </TwitterShareButton>
           <Link href="/" className="">
             <button className="w-full my-2 bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
-              Take the Survey Again
+              New here ? Start again
             </button>
           </Link>
         </div>

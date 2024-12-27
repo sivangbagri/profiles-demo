@@ -85,6 +85,7 @@ export default function SurveyComponent() {
           onAnswerClick={handleNextQuestion}
         />
       )}
+      <p className="flex justify-center m-4 text-md font-mono font-bold ">{currentQuestion}/7</p>
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80">
           <div className="text-center">
