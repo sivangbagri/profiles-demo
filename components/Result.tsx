@@ -217,7 +217,7 @@ export default function Result({ archetype }: ResultProps) {
           </form>
         ) : (
           <div className="text-green-400">
-            <p>Thank you for submitting your gaming profile!</p>
+            <p>Congrats! Now you are part of something big ! Join our <a href="https://chat.whatsapp.com/FeRRcQO4OKKASAoFlbYrqG" className="text-blue-500">gaming community</a> </p>
           </div>
         )}
       </div>
