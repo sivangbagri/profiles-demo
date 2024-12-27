@@ -132,7 +132,7 @@ export default function Result({ archetype }: ResultProps) {
           </TwitterShareButton>
           <Link href="/" className="">
             <button className="w-full my-2 bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
-              New here ? Start again
+              Not you ? Start again
             </button>
           </Link>
         </div>
