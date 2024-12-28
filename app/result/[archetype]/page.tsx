@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Result from "@/components/Result";
 import { notFound, redirect } from "next/navigation";
-import { cookies } from 'next/headers';
+import { cookies } from 'next/headers'; 
 
 type Params = Promise<{ archetype: string }>;
 
@@ -11,7 +11,7 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const { archetype } = await params;
-  let imageUrl = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFfbFMZUPw-9-fKkQEUfsY5EdaZMLHqipDw&s`;
+  let imageUrl = `https://res.cloudinary.com/dekobspwg/image/upload/v1735295878/landing_mage_kyihqj.png`;
   if (archetype === "Visionary")
     imageUrl = `https://res.cloudinary.com/dekobspwg/image/upload/v1734968061/card-vis_bo9nml.png`;
   else if (archetype === "Guardian")
@@ -46,7 +46,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `I'm a ${archetype}!`,
       description: `I just took the personality survey and discovered I'm a ${archetype}. What's your archetype?`,
-      images: [imageUrl],
+      images: [imageUrl,`https://res.cloudinary.com/dekobspwg/image/upload/v1735295878/landing_mage_kyihqj.png`],
     },
   };
 }

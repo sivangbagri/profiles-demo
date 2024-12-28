@@ -123,7 +123,7 @@ export default function Result({ archetype }: ResultProps) {
         <div className="grid md:grid-cols-2 grid-col-1 md:gap-2 gap-1 mb-2">
           <TwitterShareButton
             url={shareUrl}
-            title={`I just found my gaming profile —I'm a ${alias[archetype as Archetype]}. What's yours? Unlock your gaming personality now ! 🔥.`}
+            title={`I just found my gaming personality —I'm a ${alias[archetype as Archetype]}. What's yours? Unlock your gaming personality and quote it now ! 😎`}
             className="mb-4 w-full"
           >
             <p className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
