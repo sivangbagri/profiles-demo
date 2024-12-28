@@ -35,17 +35,17 @@ export async function generateMetadata({
     const cacheBuster = `?t=${Date.now()}`
     imageUrl += cacheBuster  
   return {
-    title: `Your Personality Archetype: ${archetype}`,
-    description: `Discover your personality archetype: ${archetype}. Take the survey now!`,
+    title: `My Gaming personality: ${archetype}`,
+    description: `Discover your gaming personality!`,
     openGraph: {
       title: `I'm a ${archetype}!`,
-      description: `I just took the personality survey and discovered I'm a ${archetype}. What's your archetype?`,
+      description: `I just found my gaming personality —I'm a ${archetype}. What's yours? Unlock your gaming personality and share it now ! 😎`,
       images: [{ url: imageUrl }],
     },
     twitter: {
       card: "summary_large_image",
       title: `I'm a ${archetype}!`,
-      description: `I just took the personality survey and discovered I'm a ${archetype}. What's your archetype?`,
+      description: `I just found my gaming personality —I'm a ${archetype}. What's yours? Unlock your gaming personality and share it now ! 😎`,
       images: [imageUrl,`https://res.cloudinary.com/dekobspwg/image/upload/v1735295878/landing_mage_kyihqj.png`],
     },
   };
