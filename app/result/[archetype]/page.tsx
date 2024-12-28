@@ -32,8 +32,8 @@ export async function generateMetadata({
     imageUrl = `https://res.cloudinary.com/dekobspwg/image/upload/v1734968045/card-real_jy5gnd.png`;
   else if (archetype === "Stoic")
     imageUrl = `https://res.cloudinary.com/dekobspwg/image/upload/v1734968049/card-stoic_nsjxru.png`;
-  //   const cacheBuster = `?t=${Date.now()}`
-  //   imageUrl += cacheBuster  
+    const cacheBuster = `?t=${Date.now()}`
+    imageUrl += cacheBuster  
   return {
     title: `Your Personality Archetype: ${archetype}`,
     description: `Discover your personality archetype: ${archetype}. Take the survey now!`,
