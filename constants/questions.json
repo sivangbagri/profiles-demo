@@ -3,7 +3,7 @@
         "question": "You find an ancient magical artifact that has the power to reshape reality, but you can only use it once. How will you use it?",
         "answerOptions": [
             {
-                "text": "Experiment with its powers in creative, Reshape reality to explore the unknown or unlock secret paths.",
+                "text": "Experiment with its powers in creative, reshape reality to explore the unknown or unlock secret paths.",
                 "type": "O",
                 "value": 1
             },
@@ -13,7 +13,7 @@
                 "value": 1
             },
             {
-                "text": "Announce the discovery, Focus on showing off its powers to intimidate your enemies or inspire your allies.",
+                "text": "Announce the discovery, focus on showing off its powers to intimidate your enemies or inspire your allies.",
                 "type": "E",
                 "value": 1
             },
