@@ -23,7 +23,7 @@ export async function generateMetadata({
   else if (archetype === "Strategist")
     imageUrl = `https://res.cloudinary.com/dekobspwg/image/upload/v1734968062/card-stra_xwxjn0.png`;
   else if (archetype === "Challenger")
-    imageUrl = `https://res.cloudinary.com/dekobspwg/image/upload/v1734968060/card-challe_ulwzan.png`;
+    imageUrl = `https://res.cloudinary.com/dekobspwg/image/upload/q_auto:low/v1734968060/card-challe_ulwzan.png`;
   else if (archetype === "Diplomat")
     imageUrl = `https://res.cloudinary.com/dekobspwg/image/upload/v1734968051/card-diplo_cdygvc.png`;
   else if (archetype === "Thinker")
