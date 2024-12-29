@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Gaming Profile",
-  description: "Seven questions and discpver your gaming personality!",
+  description: "Seven questions and discover your gaming personality!",
   openGraph: {
-    title: "What's Your Gaming Profile?",
+    title: "What's Your Gaming Personality?",
     images: ['https://res.cloudinary.com/dekobspwg/image/upload/v1735295878/landing_mage_kyihqj.png']
   },
   twitter: {
