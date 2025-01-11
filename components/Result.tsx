@@ -102,7 +102,7 @@ export default function Result({ archetype }: ResultProps) {
           <button
             onClick={handleDownload}
             disabled={!isImageLoaded}
-            className="absolute top-2 right-2 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute top-2 right-2 bg-white/30 hover:bg-white/20 text-white p-2 rounded-full transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label="Download image"
           >
             <svg
@@ -211,7 +211,7 @@ export default function Result({ archetype }: ResultProps) {
 
             <button
               type="submit"
-              className="w-full bg-white text-black rounded p-3 hover:bg-gray-200 transition-colors"
+              className="w-full bg-white text-black rounded p-3 hover:bg-gray-200 transition-colors "
             >
               Submit
             </button>
