@@ -173,7 +173,7 @@ export default function Result({ archetype }: ResultProps) {
             </div>
 
             <div className="space-y-4">
-              <p className="text-gray-400 text-left">Social Handles</p>
+              <p className="text-gray-400 text-left">Social Handles (a surprise coming up ✨)</p>
 
               <div className="space-y-2">
                 <label htmlFor="twitter" className="block text-left">
