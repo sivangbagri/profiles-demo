@@ -198,6 +198,7 @@ export default function Result({ archetype }: ResultProps) {
                 <div className="relative">
                   <span className="absolute left-3 top-3 text-gray-400">@</span>
                   <input
+                    required
                     type="text"
                     id="instagram"
                     name="instagram"
