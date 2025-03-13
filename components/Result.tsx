@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import InteractiveButton from "./InteractiveButton";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Confetti from "react-confetti";
+import Marquee from "react-fast-marquee";
 
 interface ResultProps {
   archetype: string;
@@ -58,6 +59,21 @@ export const alias: Record<Archetype, string> = {
   Realist: "Realist",
   Stoic: "Titan",
 };
+const gameImages = [
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968061/card-vis_bo9nml.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968058/card-guard_1_catlbz.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968061/card-explo_1_wfvygh.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968050/card-achie_arbq9x.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968062/card-stra_xwxjn0.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1740680136/card-unknown_2_t3ztmz.png",
+
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968060/card-challe_ulwzan.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968051/card-diplo_cdygvc.png",
+
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968048/card-think_c6gjqj.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968045/card-real_jy5gnd.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968049/card-stoic_nsjxru.png",
+];
 export default function Result({ archetype }: ResultProps) {
   const shareUrl = `https://my-gaming-profile.vercel.app/result/${archetype}`;
   const imageUrl = archetypeImages[archetype as Archetype];
@@ -90,18 +106,67 @@ export default function Result({ archetype }: ResultProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
-    }, 25000); // 25 seconds
+    }, 30000); // 30 seconds
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white p-6 sm:p-8 font-mono">
-      <div className="w-full max-w-lg mx-auto text-center">
+    <>
+    <div className="fixed inset-0 overflow-hidden -z-10 opacity-20">
+        <Marquee className="mb-8" speed={130}>
+          {gameImages.map((img, idx) => (
+            <img
+              key={idx}
+              src={img || "/placeholder.svg"}
+              alt=""
+              className="h-40 w-full object-cover mx-2"
+            />
+          ))}
+        </Marquee>
+        <Marquee direction="right" speed={130}>
+          {gameImages.map((img, idx) => (
+            <img
+              key={`row2-${idx}`}
+              src={img || "/placeholder.svg"}
+              alt=""
+              className="h-40 w-full object-cover mx-2"
+            />
+          ))}
+        </Marquee>
+        <Marquee speed={135}>
+          {gameImages.map((img, idx) => (
+            <img
+              key={`row3-${idx}`}
+              src={img || "/placeholder.svg"}
+              alt=""
+              className="h-40 w-full object-cover mx-2"
+            />
+          ))}
+        </Marquee>
+        <Marquee direction="right" speed={130}>
+          {gameImages.map((img, idx) => (
+            <img
+              key={`row3-${idx}`}
+              src={img || "/placeholder.svg"}
+              alt=""
+              className="h-40 w-full object-cover mx-2"
+            />
+          ))}
+        </Marquee>
+      </div>
+    <div className="flex flex-col items-center justify-center min-h-screen  text-white p-6 sm:p-8 font-mono ">
+      <div className="w-full max-w-xl mx-auto text-center bg-black/90 rounded-lg border border-white/10 p-3 sm:p-6">
         <h1 className="text-2xl sm:text-3xl font-bold mb-4">
           Your Gaming Profile is Ready !
         </h1>
-        <Confetti recycle={false} width={window.innerWidth} numberOfPieces={600} initialVelocityY={{ min: 10, max: 50 }} colors={["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"]}  />
+        <Confetti
+          recycle={false}
+          width={window.innerWidth}
+          numberOfPieces={1000}
+          initialVelocityY={{ min: 25, max: 70 }}
+          colors={["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"]}
+        />
         {/* <DotLottieReact
           src="https://lottie.host/493157dd-0b44-416e-bef1-8650312810c3/SslflVFC1Q.lottie"
           autoplay
@@ -160,106 +225,6 @@ export default function Result({ archetype }: ResultProps) {
             </button>
           </Link>
         </div>
-
-        {!formSubmitted ? (
-          <form action={handleSubmit} className="space-y-6">
-            <input
-              type="hidden"
-              id="archetype"
-              name="archetype"
-              value={archetype}
-            />
-            <div className="space-y-2">
-              <label htmlFor="game" className="block text-left">
-                Which game do you play the most?
-              </label>
-              <input
-                required
-                type="text"
-                id="game"
-                name="game"
-                className="w-full bg-white/10 rounded p-3 focus:outline-none focus:ring-2 focus:ring-white/50"
-                placeholder="Enter game name"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label htmlFor="frequency" className="block text-left">
-                How often do you play?
-              </label>
-              <select
-                required
-                id="frequency"
-                name="frequency"
-                className="w-full bg-white/10 rounded p-3 focus:outline-none focus:ring-2 focus:ring-white/50"
-              >
-                <option value="">Select frequency</option>
-                <option value="daily">Daily</option>
-                <option value="weekly">Few times a week</option>
-                <option value="monthly">Few times a month</option>
-                <option value="rarely">Rarely</option>
-              </select>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-gray-400 text-left">
-                Social Handles (donot miss out anything 😉)
-              </p>
-
-              <div className="space-y-2">
-                <label htmlFor="twitter" className="block text-left">
-                  Twitter Handle
-                </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-3 text-gray-400">@</span>
-                  <input
-                    type="text"
-                    id="twitter"
-                    name="twitter"
-                    className="w-full bg-white/10 rounded p-3 pl-8 focus:outline-none focus:ring-2 focus:ring-white/50"
-                    placeholder="username"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="instagram" className="block text-left">
-                  Instagram Handle
-                </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-3 text-gray-400">@</span>
-                  <input
-                    required
-                    type="text"
-                    id="instagram"
-                    name="instagram"
-                    className="w-full bg-white/10 rounded p-3 pl-8 focus:outline-none focus:ring-2 focus:ring-white/50"
-                    placeholder="username"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-white text-black rounded p-3 hover:bg-gray-200 transition-colors "
-            >
-              Submit
-            </button>
-          </form>
-        ) : (
-          <div className="text-green-400">
-            <p>
-              Congrats! Now you are part of something big ! Join our{" "}
-              <a
-                href="https://chat.whatsapp.com/FeRRcQO4OKKASAoFlbYrqG"
-                className="text-blue-500"
-              >
-                gaming community
-              </a>{" "}
-            </p>
-          </div>
-        )}
       </div>
       {showPopup && (
         <div className="fixed bottom-0 right-0 transform -translate-x-1/2 mb-4 bg-white text-black p-4 rounded-full shadow-lg animate-bounce">
@@ -285,5 +250,6 @@ export default function Result({ archetype }: ResultProps) {
         </div>
       )}
     </div>
+    </>
   );
 }
