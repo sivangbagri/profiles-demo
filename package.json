@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.13.0",
     "@neondatabase/serverless": "^0.10.4",
     "@vercel/analytics": "^1.4.1",
     "framer-motion": "^11.15.0",
@@ -16,7 +17,9 @@
     "next": "15.1.2",
     "next-share": "^0.27.0",
     "react": "^19.0.0",
+    "react-confetti": "^6.4.0",
     "react-dom": "^19.0.0",
+    "react-fast-marquee": "^1.6.5",
     "react-router-dom": "^7.1.0"
   },
   "devDependencies": {

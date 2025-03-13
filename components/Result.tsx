@@ -4,12 +4,15 @@ import Image from "next/image";
 import { TwitterShareButton } from "next-share";
 import Link from "next/link";
 import { submitGamingProfile } from "../actions";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import InteractiveButton from "./InteractiveButton";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Confetti from "react-confetti";
 
 interface ResultProps {
   archetype: string;
 }
-type Archetype =
+export type Archetype =
   | "Visionary"
   | "Guardian"
   | "Explorer"
@@ -43,23 +46,25 @@ const archetypeImages: Record<Archetype, string> = {
   Stoic:
     "https://res.cloudinary.com/dekobspwg/image/upload/v1734968049/card-stoic_nsjxru.png",
 };
+export const alias: Record<Archetype, string> = {
+  Visionary: "Futurist",
+  Guardian: "Defender",
+  Explorer: "Explorer",
+  Achiever: "Overlord",
+  Strategist: "Warlord",
+  Challenger: "Ironheart",
+  Diplomat: "Peacemaker",
+  Thinker: "Logician",
+  Realist: "Realist",
+  Stoic: "Titan",
+};
 export default function Result({ archetype }: ResultProps) {
   const shareUrl = `https://my-gaming-profile.vercel.app/result/${archetype}`;
   const imageUrl = archetypeImages[archetype as Archetype];
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const alias:Record<Archetype, string> = {
-    Visionary: "Futurist",
-    Guardian: "Defender",
-    Explorer: "Explorer",
-    Achiever: "Overlord",
-    Strategist: "Warlord",
-    Challenger: "Ironheart",
-    Diplomat: "Peacemaker",
-    Thinker: "Logician",
-    Realist: "Realist",
-    Stoic: "Titan",
-  };
+  const [showPopup, setShowPopup] = useState(false);
+
   async function handleSubmit(formData: FormData) {
     const result = await submitGamingProfile(formData);
     if (result.success) {
@@ -82,6 +87,13 @@ export default function Result({ archetype }: ResultProps) {
       console.error("Error downloading image:", error);
     }
   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 25000); // 25 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white p-6 sm:p-8 font-mono">
@@ -89,7 +101,15 @@ export default function Result({ archetype }: ResultProps) {
         <h1 className="text-2xl sm:text-3xl font-bold mb-4">
           Your Gaming Profile is Ready !
         </h1>
-        <p className="text-xl sm:text-2xl mb-6">The {alias[archetype as Archetype]}</p>
+        <Confetti recycle={false} width={window.innerWidth} numberOfPieces={600} initialVelocityY={{ min: 10, max: 50 }} colors={["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"]}  />
+        {/* <DotLottieReact
+          src="https://lottie.host/493157dd-0b44-416e-bef1-8650312810c3/SslflVFC1Q.lottie"
+          autoplay
+          loop
+        /> */}
+        <p className="text-xl sm:text-2xl mb-6">
+          The {alias[archetype as Archetype]}
+        </p>
         <div className="relative w-full h-32 sm:w-full sm:h-60 mb-2 mx-auto">
           <Image
             src={imageUrl}
@@ -120,18 +140,22 @@ export default function Result({ archetype }: ResultProps) {
           </button>
         </div>
 
-        <div className="grid md:grid-cols-2 grid-col-1 md:gap-2 gap-1 mb-2">
+        <div className="grid md:grid-cols-2 grid-col-1 md:gap-2 gap-1 my-5 ">
           <TwitterShareButton
             url={shareUrl}
-            title={`I just found my gaming personality —I'm a ${alias[archetype as Archetype]}. What's yours? Unlock your gaming personality and quote it now ! 😎`}
+            title={`I just found my gaming personality —I'm a ${
+              alias[archetype as Archetype]
+            }. What's yours? Unlock your gaming personality and quote it now ! 😎`}
             className="mb-4 w-full"
           >
             <p className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
               Share on X
             </p>
           </TwitterShareButton>
-          <Link href="/" className="">
-            <button className="w-full my-2 bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
+          <InteractiveButton archetype={archetype} />
+
+          <Link href="/" className="col-span-2">
+            <button className="w-full mb-2 bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
               Not you ? Start again
             </button>
           </Link>
@@ -139,7 +163,12 @@ export default function Result({ archetype }: ResultProps) {
 
         {!formSubmitted ? (
           <form action={handleSubmit} className="space-y-6">
-             <input type="hidden" id="archetype" name="archetype" value={archetype} />
+            <input
+              type="hidden"
+              id="archetype"
+              name="archetype"
+              value={archetype}
+            />
             <div className="space-y-2">
               <label htmlFor="game" className="block text-left">
                 Which game do you play the most?
@@ -173,7 +202,9 @@ export default function Result({ archetype }: ResultProps) {
             </div>
 
             <div className="space-y-4">
-              <p className="text-gray-400 text-left">Social Handles (a surprise coming up ✨)</p>
+              <p className="text-gray-400 text-left">
+                Social Handles (donot miss out anything 😉)
+              </p>
 
               <div className="space-y-2">
                 <label htmlFor="twitter" className="block text-left">
@@ -218,10 +249,41 @@ export default function Result({ archetype }: ResultProps) {
           </form>
         ) : (
           <div className="text-green-400">
-            <p>Congrats! Now you are part of something big ! Join our <a href="https://chat.whatsapp.com/FeRRcQO4OKKASAoFlbYrqG" className="text-blue-500">gaming community</a> </p>
+            <p>
+              Congrats! Now you are part of something big ! Join our{" "}
+              <a
+                href="https://chat.whatsapp.com/FeRRcQO4OKKASAoFlbYrqG"
+                className="text-blue-500"
+              >
+                gaming community
+              </a>{" "}
+            </p>
           </div>
         )}
       </div>
+      {showPopup && (
+        <div className="fixed bottom-0 right-0 transform -translate-x-1/2 mb-4 bg-white text-black p-4 rounded-full shadow-lg animate-bounce">
+          <div className="flex items-center space-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-yellow-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+              />
+            </svg>
+            <span className="font-bold">
+              {10 + Math.floor(Math.random() * 100)} gamers just posted on X
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
