@@ -80,13 +80,41 @@ export default function Result({ archetype }: ResultProps) {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-
-  async function handleSubmit(formData: FormData) {
-    const result = await submitGamingProfile(formData);
-    if (result.success) {
-      setFormSubmitted(true);
-    }
+  const [ImageUrl, setImageUrl] = useState("");
+  const [username, setUsername] = useState<string>("");
+  function getUsernameFromURL(): void {
+    if (typeof window === "undefined" || !window) return;
+    const urlParams = new URLSearchParams(window.location.search);
+    const usernameParam = urlParams.get("username");
+    console.log("X usrname ", usernameParam);
+    if (usernameParam === null || typeof usernameParam !== "string") return;
+    setUsername(usernameParam);
   }
+  const fetchXProfile = async (username: string) => {
+    if (!username) return;
+
+    // setLoading(true);
+
+    fetch(`/api/get-twitter-pfp`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch profile image");
+        return res.json();
+      })
+      .then((data) => {
+        setImageUrl(data.profileImageUrl);
+        // setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        // setLoading(false);
+      });
+  };
   const handleDownload = async () => {
     try {
       const response = await fetch(imageUrl);
@@ -104,16 +132,18 @@ export default function Result({ archetype }: ResultProps) {
     }
   };
   useEffect(() => {
+    getUsernameFromURL();
+    fetchXProfile(username);
     const timer = setTimeout(() => {
       setShowPopup(true);
     }, 30000); // 30 seconds
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [username, getUsernameFromURL]);
 
   return (
     <>
-    <div className="fixed inset-0 overflow-hidden -z-10 opacity-20">
+      <div className="fixed inset-0 overflow-hidden -z-10 opacity-20">
         <Marquee className="mb-8" speed={130}>
           {gameImages.map((img, idx) => (
             <img
@@ -155,101 +185,106 @@ export default function Result({ archetype }: ResultProps) {
           ))}
         </Marquee>
       </div>
-    <div className="flex flex-col items-center justify-center min-h-screen  text-white p-6 sm:p-8 font-mono ">
-      <div className="w-full max-w-xl mx-auto text-center bg-black/90 rounded-lg border border-white/10 p-3 sm:p-6">
-        <h1 className="text-2xl sm:text-3xl font-bold mb-4">
-          Your Gaming Profile is Ready !
-        </h1>
-        <Confetti
-          recycle={false}
-          width={window.innerWidth}
-          numberOfPieces={1000}
-          initialVelocityY={{ min: 25, max: 70 }}
-          colors={["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"]}
-        />
-        {/* <DotLottieReact
-          src="https://lottie.host/493157dd-0b44-416e-bef1-8650312810c3/SslflVFC1Q.lottie"
-          autoplay
-          loop
-        /> */}
-        <p className="text-xl sm:text-2xl mb-6">
-          The {alias[archetype as Archetype]}
-        </p>
-        <div className="relative w-full h-32 sm:w-full sm:h-60 mb-2 mx-auto">
-          <Image
-            src={imageUrl}
-            alt={`${archetype} archetype`}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-md"
-            onLoadingComplete={() => setIsImageLoaded(true)}
+      <div className="flex flex-col items-center justify-center min-h-screen  text-white p-6 sm:p-8 font-mono ">
+        <div className="w-full max-w-xl mx-auto text-center bg-black/90 rounded-lg border border-white/10 p-3 sm:p-6">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-4">
+            Your Gaming Profile is Ready !
+          </h1>
+          <Confetti
+            recycle={false}
+            width={window.innerWidth}
+            numberOfPieces={1000}
+            initialVelocityY={{ min: 25, max: 70 }}
+            colors={["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"]}
           />
-          <button
-            onClick={handleDownload}
-            disabled={!isImageLoaded}
-            className="absolute top-2 right-2 bg-white/30 hover:bg-white/20 text-white p-2 rounded-full transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-label="Download image"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+
+          <p className="text-xl sm:text-2xl mb-6">
+            The {alias[archetype as Archetype]}
+          </p>
+          <div className="relative w-full h-32 sm:w-full sm:h-60 mb-2 mx-auto">
+            <Image
+              src={imageUrl}
+              alt={`${archetype} archetype`}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-md"
+              onLoadingComplete={() => setIsImageLoaded(true)}
+            />
+            {ImageUrl && (
+              <div className="absolute bottom-1 right-1 z-10">
+                <img
+                  src={ImageUrl}
+                  className="size-8 sm:size-12 rounded-md border-2 border-white/80 shadow-purple-600 shadow-sm"
+                  alt="Profile"
+                />
+              </div>
+            )}
+            <button
+              onClick={handleDownload}
+              disabled={!isImageLoaded}
+              className="absolute top-2 right-2 bg-white/30 hover:bg-white/20 text-white p-2 rounded-full transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Download image"
             >
-              <path
-                fillRule="evenodd"
-                d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <div className="grid md:grid-cols-2 grid-col-1 md:gap-2 gap-1 my-5 ">
-          <TwitterShareButton
-            url={shareUrl}
-            title={`I just found my gaming personality —I'm a ${
-              alias[archetype as Archetype]
-            }. What's yours? Unlock your gaming personality and quote it now ! 😎`}
-            className="mb-4 w-full"
-          >
-            <p className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
-              Share on X
-            </p>
-          </TwitterShareButton>
-          <InteractiveButton archetype={archetype} />
-
-          <Link href="/" className="col-span-2">
-            <button className="w-full mb-2 bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
-              Not you ? Start again
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </button>
-          </Link>
-        </div>
-      </div>
-      {showPopup && (
-        <div className="fixed bottom-0 right-0 transform -translate-x-1/2 mb-4 bg-white text-black p-4 rounded-full shadow-lg animate-bounce">
-          <div className="flex items-center space-x-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-yellow-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          </div>
+
+          <div className="grid md:grid-cols-2 grid-col-1 md:gap-2 gap-1 my-5 ">
+            <TwitterShareButton
+              url={shareUrl}
+              title={`I just found my gaming personality —I'm a ${
+                alias[archetype as Archetype]
+              }. What's yours? Unlock your gaming personality and quote it now ! 😎`}
+              className="mb-4 w-full"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-              />
-            </svg>
-            <span className="font-bold">
-              {10 + Math.floor(Math.random() * 100)} gamers just posted on X
-            </span>
+              <p className="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
+                Share on X
+              </p>
+            </TwitterShareButton>
+            <InteractiveButton archetype={archetype} />
+
+            <Link href="/" className="col-span-2">
+              <button className="w-full mb-2 bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm sm:text-base">
+                Not you ? Start again
+              </button>
+            </Link>
           </div>
         </div>
-      )}
-    </div>
+        {showPopup && (
+          <div className="fixed bottom-0 right-0 transform -translate-x-1/2 mb-4 bg-white text-black p-4 rounded-full shadow-lg animate-bounce">
+            <div className="flex items-center space-x-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-yellow-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                />
+              </svg>
+              <span className="font-bold">
+                {10 + Math.floor(Math.random() * 100)} gamers just posted on X
+              </span>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 }

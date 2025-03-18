@@ -76,7 +76,7 @@ export default function SurveyComponent() {
     // }
     // fetchTwitterProfile(formData.get("twitter"))
     startTransition(() => {
-      router.push(`/result/${calculatedArchetype}`);
+      router.push(`/result/${calculatedArchetype}?username=${formData.get("twitter")}`);
     });
     setIsLoading(false);
   };

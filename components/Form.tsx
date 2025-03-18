@@ -23,7 +23,12 @@ const Form: React.FC<FormProps> = ({ handleSubmit, archetype, isLoading }) => {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <input type="hidden" id="archetype" name="archetype" value={archetype} />
+          <input
+            type="hidden"
+            id="archetype"
+            name="archetype"
+            value={archetype}
+          />
 
           <div className="space-y-2">
             <label htmlFor="game" className="block text-left">
@@ -60,13 +65,18 @@ const Form: React.FC<FormProps> = ({ handleSubmit, archetype, isLoading }) => {
           </div>
 
           <div className="space-y-4">
-            <p className="text-gray-400 text-left">Social Handles (don’t miss out anything 😉)</p>
+            <p className="text-gray-400 text-left">
+              Social Handles (don’t miss out anything 😉)
+            </p>
 
             <div className="space-y-2">
-              <label htmlFor="twitter" className="block text-left">Twitter Handle</label>
+              <label htmlFor="twitter" className="block text-left">
+                Twitter Handle
+              </label>
               <div className="relative">
                 <span className="absolute left-3 top-3 text-gray-400">@</span>
                 <motion.input
+                  required
                   type="text"
                   id="twitter"
                   name="twitter"
@@ -78,11 +88,12 @@ const Form: React.FC<FormProps> = ({ handleSubmit, archetype, isLoading }) => {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="instagram" className="block text-left">Instagram Handle</label>
+              <label htmlFor="instagram" className="block text-left">
+                Instagram Handle
+              </label>
               <div className="relative">
                 <span className="absolute left-3 top-3 text-gray-400">@</span>
                 <motion.input
-                  required
                   type="text"
                   id="instagram"
                   name="instagram"
