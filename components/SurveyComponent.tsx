@@ -5,16 +5,10 @@ import Question from "./Question";
 import { useRouter } from "next/navigation";
 import questions from "@/constants/questions.json";
 import Cookies from "js-cookie";
+import Form from "./Form";
+import { submitGamingProfile } from "../actions";
 
 export default function SurveyComponent() {
-  const deleteCookie = async () => {
-    await fetch("/api/delete-cookie", { method: "POST" });
-  };
-
-  // useEffect(() => {
-  //   deleteCookie();
-  // }, []);
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
   type Results = {
     O: number;
@@ -31,9 +25,11 @@ export default function SurveyComponent() {
     N: 0,
   });
 
-  const [isLoading, setIsLoading] = useState(false); // Added loading state
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
+  const [showFormModal, setShowFormModal] = useState(false);
+  const [calculatedArchetype, setCalculatedArchetype] = useState("");
 
   const handleNextQuestion = async (type: string) => {
     setResults((prev) => ({
@@ -44,18 +40,47 @@ export default function SurveyComponent() {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
     } else {
-      setIsLoading(true);
       const archetype = calculateArchetype(results);
-      Cookies.set("surveyCompleted", "true");
-
-      setTimeout(() => {
-        startTransition(() => {
-          router.push(`/result/${archetype}`);
-        });
-        setIsLoading(false);
-      }, 2000);
+      setCalculatedArchetype(archetype);
+      setShowFormModal(true);
     }
   };
+  const fetchTwitterProfile = async (username:FormDataEntryValue | null ) => {
+    
+    const BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAABLsyAEAAAAAf2WS3XGXwOLtnRNag6veLqapkjQ%3DtQj2hyxfvnMfofpQB9lhdXxe8LdHOEIxt3E5BXppN9xwIkpgeO"; // Replace with your API token
+    const url = `https://api.twitter.com/2/users/by/username/${username}?user.fields=profile_image_url`;
+
+    const response = await fetch(url, {
+        headers: {
+            "Authorization": `Bearer ${BEARER_TOKEN}`,
+            "access-control-allow-origin": "*"
+            
+        }
+    });
+
+    if (!response.ok) {
+        console.error("Error fetching profile:", response.statusText);
+        return;
+    }
+
+    const data = await response.json();
+    console.log("Profile Image URL:", data.data.profile_image_url);
+};
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    setIsLoading(true);
+    const result = await submitGamingProfile(formData);
+    // if (result.success) {
+    //   setFormSubmitted(true);
+    // }
+    // fetchTwitterProfile(formData.get("twitter"))
+    startTransition(() => {
+      router.push(`/result/${calculatedArchetype}?username=${formData.get("twitter")}`);
+    });
+    setIsLoading(false);
+  };
+  // 
 
   const calculateArchetype = (results: Results) => {
     const { O, C, E, A, N } = results;
@@ -85,14 +110,26 @@ export default function SurveyComponent() {
           onAnswerClick={handleNextQuestion}
         />
       )}
-      <p className="flex justify-center m-4 text-md font-mono font-bold ">{currentQuestion}/7</p>
-      {isLoading && (
+      <p className="flex justify-center m-4 text-md font-mono font-bold ">
+        {currentQuestion}/7
+      </p>
+      {showFormModal && (
+        <Form
+          handleSubmit={handleSubmit}
+          archetype={calculatedArchetype}
+          isLoading={isLoading}
+        />
+      )}
+      {/* {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80">
           <div className="text-center">
-            <img src="https://i.pinimg.com/736x/65/dd/3b/65dd3b014ebf57b81f781cb2d2225c36.jpg" className="size-40" /> 
+            <img
+              src="https://i.pinimg.com/736x/65/dd/3b/65dd3b014ebf57b81f781cb2d2225c36.jpg"
+              className="size-40"
+            />
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

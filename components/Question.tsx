@@ -15,7 +15,7 @@ export default function Question({ question, onAnswerClick }: QuestionProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="bg-black/50 rounded-lg border border-white/10 p-4 sm:p-6  mx-auto w-full"
+      className="bg-black/90 rounded-lg border border-white/10 p-4 sm:p-6  mx-auto w-full"
     >
       <h2 className="text-xl sm:text-2xl font-bold mb-4 text-white font-mono">
         {question.question}
