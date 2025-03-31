@@ -63,18 +63,16 @@ export const alias: Record<Archetype, string> = {
 };
 const gameImages = [
   "https://res.cloudinary.com/dekobspwg/image/upload/v1742576975/35289427-0e5f-4907-85aa-df08d7af922e_tiowrw.jpg",
-  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968061/card-explo_1_wfvygh.png",
-  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968050/card-achie_arbq9x.png",
-  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968062/card-stra_xwxjn0.png",
-  "https://res.cloudinary.com/dekobspwg/image/upload/v1740680136/card-unknown_2_t3ztmz.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1742739862/Screenshot_2025-03-23_195323_pzuqbu.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1742739861/Screenshot_2025-03-23_195311_sagfmw.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1742739272/60bfad6b-8ec1-4bc5-a14e-94de94934236_tofgzc.jpg",
   "https://res.cloudinary.com/dekobspwg/image/upload/v1742577496/bf237122-83e6-4588-a556-f92589bdfa82_bzujb0.jpg",
 
-  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968060/card-challe_ulwzan.png",
-  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968051/card-diplo_cdygvc.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1742739495/bf18977f-4688-40b9-90df-35c86546725d_cl5eal.jpg",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1742739861/Screenshot_2025-03-23_195345_ltguoa.png",
 
-  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968048/card-think_c6gjqj.png",
-  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968045/card-real_jy5gnd.png",
-  "https://res.cloudinary.com/dekobspwg/image/upload/v1734968049/card-stoic_nsjxru.png",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1742739496/3d0a7f25-472f-4aa6-bdf1-893e6e02f8e9_lscu4r.jpg",
+  "https://res.cloudinary.com/dekobspwg/image/upload/v1742739861/Screenshot_2025-03-23_195358_siggdb.png",
 ];
 export default function Result({ archetype }: ResultProps) {
   const shareUrl = `https://my-gaming-profile.vercel.app/result/${archetype}`;
@@ -162,7 +160,7 @@ export default function Result({ archetype }: ResultProps) {
               key={idx}
               src={img || "/placeholder.svg"}
               alt=""
-              className="h-40 w-full object-cover mx-2"
+              className="h-60 w-full object-cover mx-2"
             />
           ))}
         </Marquee>
@@ -172,7 +170,7 @@ export default function Result({ archetype }: ResultProps) {
               key={`row2-${idx}`}
               src={img || "/placeholder.svg"}
               alt=""
-              className="h-40 w-full object-cover mx-2"
+              className="h-60 w-full object-cover mx-2"
             />
           ))}
         </Marquee>
