@@ -61,6 +61,16 @@ export default function Home() {
             />
           ))}
         </Marquee>
+        <Marquee className="mb-8" speed={130}>
+          {gameImages.map((img, idx) => (
+            <img
+              key={idx}
+              src={img || "/placeholder.svg"}
+              alt=""
+              className="h-40 w-full object-cover mx-2"
+            />
+          ))}
+        </Marquee>
       </div>
       <main className="flex min-h-screen flex-col items-center justify-center p-6 md:p-24">
         <h1 className="text-3xl font-bold mb-8 font-mono">

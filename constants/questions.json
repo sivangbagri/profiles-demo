@@ -1,29 +1,30 @@
 [
     {
         "question": "You find an ancient magical artifact that has the power to reshape reality, but you can only use it once. How will you use it?",
+        "imageURL": "/q1.png",
         "answerOptions": [
             {
-                "text": "Experiment with its powers in creative, reshape reality to explore the unknown or unlock secret paths.",
+                "text": "Experiment with its powers in creative, reshape reality to explore the unknown",
                 "type": "O",
                 "value": 1
             },
             {
-                "text": "Use it solely for practical purposes, such as building a safe escape route.",
+                "text": "Use it solely for practical purposes, such as building a safe escape route",
                 "type": "C",
                 "value": 1
             },
             {
-                "text": "Announce the discovery, focus on showing off its powers to intimidate your enemies or inspire your allies.",
+                "text": "Announce the discovery, focus on showing off its powers to intimidate your enemies",
                 "type": "E",
                 "value": 1
             },
             {
-                "text": "Proceed cautiously, considering all possible outcomes before taking action.",
+                "text": "Proceed cautiously, considering all possible outcomes before taking action",
                 "type": "N",
                 "value": 1
             },
             {
-                "text": "Use it to solve a problem that benefits everyone in need rather than personal gain.",
+                "text": "Use it to solve a problem that benefits everyone",
                 "type": "A",
                 "value": 1
             }
@@ -31,36 +32,38 @@
     },
     {
         "question": "You're in the customization menu of a racing game, where you can upgrade skins, visuals, and accessories for your vehicle. What will you do?",
+        "imageURL": "/q2.png",
         "answerOptions": [
             {
-                "text": "Opt for simple, team-oriented designs to stay easily recognizable by other players in multiplayer games.",
+                "text": "Opt for simple, team-oriented designs to stay easily recognizable by other players in multiplayer games",
                 "type": "A",
                 "value": 1
             },
             {
-                "text": "Try bold and unusual customization options, mixing bright colors and patterns to create a unique look.",
+                "text": "Try bold and unusual customization options, mixing bright colors and patterns to create a unique look",
                 "type": "O",
                 "value": 1
             },
             {
-                "text": "Carefully evaluate each option, striving to make the most well-informed and thoughtful decision.",
+                "text": "Carefully evaluate each option, striving to make the most thoughtful decision",
                 "type": "N",
                 "value": 1
             },
             {
-                "text": "Choose upgrades that will match your gameplay needs or strategy for better performance.",
+                "text": "Choose upgrades that will match your gameplay needs for better performance",
                 "type": "C",
                 "value": 1
             },
             {
-                "text": "Choose flashy and vibrant designs that draw attention, aiming to stand out from other players.",
+                "text": "Choose flashy and vibrant designs, aiming to stand out from other players",
                 "type": "E",
                 "value": 1
             }
         ]
     },
     {
-        "question": "You’re in a competitive mini-game party mode with friends and family. The game relies on collecting the most items from a shared game arena in 3 minutes.",
+        "question": "You’re in a competitive mini-game party mode with friends and family. The game relies on collecting the most items from a shared game arena in 3 minutes",
+        "imageURL": "/q3.png",
         "answerOptions": [
             {
                 "text": "Avoid hurting other players' chances and instead work cooperatively with others",
@@ -68,82 +71,84 @@
                 "value": 1
             },
             {
-                "text": "Try to discover creative routes or experiment with different gameplay mechanics for an advantage.",
+                "text": "Try to discover creative routes or experiment with different gameplay mechanics for an advantage",
                 "type": "O",
                 "value": 1
             },
             {
-                "text": "Aggressively gather items and interact with as many players as possible, embracing the chaos.",
+                "text": "Aggressively gather items and interact with as many players as possible, embracing the chaos",
                 "type": "E",
                 "value": 1
             },
             {
-                "text": "Give yourself time to think it through before you rush.",
+                "text": "Give yourself time to think it through before you rush",
                 "type": "N",
                 "value": 1
             },
             {
-                "text": "Stick to careful paths and avoid unnecessary risks for reliable points.",
+                "text": "Stick to careful paths and avoid unnecessary risks for reliable points",
                 "type": "C",
                 "value": 1
             }
         ]
     },
     {
-        "question": "Your opponent has consistently blocked and countered your most powerful moves. You must figure out a strategy to break through their defenses.",
+        "question": "Your opponent has consistently blocked and countered your most powerful moves. You must figure out a strategy to break through their defenses",
+        "imageURL": "/q4.png",
         "answerOptions": [
             {
-                "text": "Try unpredictable tactics and creative combo setups to keep your opponent guessing.",
+                "text": "Try unpredictable tactics and creative combo setups to keep your opponent guessing",
                 "type": "O",
                 "value": 1
             },
             {
-                "text": "Attempt to test the waters with minimal-risk attacks rather than all-in strategies.",
+                "text": "Attempt to test the waters with minimal-risk attacks rather than all-in strategies",
                 "type": "A",
                 "value": 1
             },
             {
-                "text": "Take extra time to refine your approach, mindful of potential setbacks.",
+                "text": "Take extra time to refine your approach, mindful of potential setbacks",
                 "type": "N",
                 "value": 1
             },
             {
-                "text": "Stick to well-planned counter maneuvers and wait for openings methodically.",
+                "text": "Stick to well-planned counter maneuvers and wait for openings methodically",
                 "type": "C",
                 "value": 1
             },
             {
-                "text": "Aggressively pressure them by rushing in with constant attacks and strong combos.",
+                "text": "Aggressively pressure them by rushing in with constant attacks and strong combos",
                 "type": "E",
                 "value": 1
             }
         ]
     },
     {
-        "question": "You’re the last member of your team and have 20 seconds to defuse the bomb in a critical round of a FPS game. The enemy is actively trying to stop you.",
+        "question": "You’re the last member of your team and have 20 seconds to defuse the bomb in a critical round of a FPS game. The enemy is actively trying to stop you",
+        "imageURL": "/q5.png",
         "answerOptions": [
             {
-                "text": "Play it safe, focusing on defense and double-checking moves.",
+                "text": "Play it safe, focusing on defense and double-checking moves",
                 "type": "N",
                 "value": 1
             },
             {
-                "text": "Rush in with high-speed movements and confidence, using quick actions to make it difficult for enemies to counter.",
+                "text": "Rush in with high-speed movements and confidence, using quick actions to make it difficult for enemies to counter",
                 "type": "E",
                 "value": 1
             },
             {
-                "text": "Stick to a steady, calculated approach, focusing solely on defusing with minimal risks.",
+                "text": "Stick to a steady, calculated approach, focusing solely on defusing with minimal risks",
                 "type": "C",
                 "value": 1
             },
             {
-                "text": "Prioritize careful observation, using defensive tactics to ensure you can safely defuse without losing health.",
+                "text": "Prioritize careful observation, using defensive tactics to ensure you can safely defuse without losing health",
                 "type": "A",
                 "value": 1
             },
             {
-                "text": "Attempt unpredictable movement patterns to throw off the enemy’s aim while focusing on the defuse.",
+                "text": "Attempt unpredictable movement patterns to throw off the enemy’s aim while focusing on the defuse",
                 "type": "O",
                 "value": 1
             }
@@ -151,6 +156,7 @@
     },
     {
         "question": "You’re focusing on expanding your resource economy by building new resource-gathering structures. How will you approach this?",
+        "imageURL": "/q6.png",
         "answerOptions": [
             {
                 "text": "Experiment with unconventional building placements or resource paths to optimize gathering efficiency.                ",
@@ -158,7 +164,7 @@
                 "value": 1
             },
             {
-                "text": "Stick to a disciplined, structured build order that ensures steady economic growth.",
+                "text": "Stick to a disciplined, structured build order that ensures steady economic growth",
                 "type": "C",
                 "value": 1
             },
@@ -168,12 +174,12 @@
                 "value": 1
             },
             {
-                "text": "Focus on high-activity resource paths, micromanaging all workers simultaneously.",
+                "text": "Focus on high-activity resource paths, micromanaging all workers simultaneously",
                 "type": "E",
                 "value": 1
             },
             {
-                "text": "Prioritize efficient team coordination to balance resource management with shared objectives.",
+                "text": "Prioritize efficient team coordination to balance resource management with shared objectives",
                 "type": "A",
                 "value": 1
             }
@@ -181,34 +187,33 @@
     },
     {
         "question": "You’re in a social simulator and trying to build relationships with NPCs. How will you interact with others?",
+        "imageURL": "/q7.png",
         "answerOptions": [
             {
-                "text": "Prioritize supporting others, building trust, and creating long-term partnerships without conflict.",
+                "text": "Prioritize supporting others, building trust, and creating long-term partnerships without conflict",
                 "type": "A",
                 "value": 1
             },
             {
-                "text": "Experiment with unique conversation paths and try out new interactions with every NPC you meet.                ",
+                "text": "Experiment with unique conversation paths and try out new interactions with every NPC you meet",
                 "type": "O",
                 "value": 1
             },
             {
-                "text": "Build relationships steadily by engaging in reliable, consistent interactions.",
+                "text": "Build relationships steadily by engaging in reliable, consistent interactions",
                 "type": "C",
                 "value": 1
             },
             {
-                "text": "Approach interactions cautiously, unsure if getting too involved might lead to a problem.",
+                "text": "Approach interactions cautiously, unsure if getting too involved might lead to a problem",
                 "type": "N",
                 "value": 1
             },
             {
-                "text": "Focus on building large social groups, hosting parties, and creating memorable interactions.",
+                "text": "Focus on building large social groups, hosting parties, and creating memorable interactions",
                 "type": "E",
                 "value": 1
             }
-            
-           
         ]
     }
 ]
